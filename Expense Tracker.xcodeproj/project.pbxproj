@@ -11,6 +11,7 @@
 		7E0B53252B2BBA5400CEF07E /* TransactionCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E0B53242B2BBA5400CEF07E /* TransactionCardView.swift */; };
 		7E0B53272B2BBE3500CEF07E /* SwipeAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E0B53262B2BBE3500CEF07E /* SwipeAction.swift */; };
 		7E0B53292B2BDB9000CEF07E /* DateFilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E0B53282B2BDB9000CEF07E /* DateFilterView.swift */; };
+		7E4D8AB02B2DD1340001113D /* LockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E4D8AAF2B2DD1340001113D /* LockView.swift */; };
 		7E7B1C292B2B5035008D3DA7 /* Recents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E7B1C282B2B5035008D3DA7 /* Recents.swift */; };
 		7E7B1C2B2B2B5055008D3DA7 /* Search.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E7B1C2A2B2B5055008D3DA7 /* Search.swift */; };
 		7E7B1C2D2B2B505E008D3DA7 /* Graphs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E7B1C2C2B2B505E008D3DA7 /* Graphs.swift */; };
@@ -34,6 +35,8 @@
 		7E0B53242B2BBA5400CEF07E /* TransactionCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionCardView.swift; sourceTree = "<group>"; };
 		7E0B53262B2BBE3500CEF07E /* SwipeAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeAction.swift; sourceTree = "<group>"; };
 		7E0B53282B2BDB9000CEF07E /* DateFilterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFilterView.swift; sourceTree = "<group>"; };
+		7E4D8AAF2B2DD1340001113D /* LockView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LockView.swift; sourceTree = "<group>"; };
+		7E4D8AB12B2DE5A80001113D /* Expense-Tracker-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Expense-Tracker-Info.plist"; sourceTree = SOURCE_ROOT; };
 		7E7B1C282B2B5035008D3DA7 /* Recents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recents.swift; sourceTree = "<group>"; };
 		7E7B1C2A2B2B5055008D3DA7 /* Search.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Search.swift; sourceTree = "<group>"; };
 		7E7B1C2C2B2B505E008D3DA7 /* Graphs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Graphs.swift; sourceTree = "<group>"; };
@@ -71,6 +74,7 @@
 				7E0B53242B2BBA5400CEF07E /* TransactionCardView.swift */,
 				7E0B53262B2BBE3500CEF07E /* SwipeAction.swift */,
 				7E0B53282B2BDB9000CEF07E /* DateFilterView.swift */,
+				7E4D8AAF2B2DD1340001113D /* LockView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -105,6 +109,7 @@
 		7ED96AC52B2AF327000BB6D5 /* Expense Tracker */ = {
 			isa = PBXGroup;
 			children = (
+				7E4D8AB12B2DE5A80001113D /* Expense-Tracker-Info.plist */,
 				7ED96AD82B2AF573000BB6D5 /* Helpers */,
 				7ED96AD52B2AF375000BB6D5 /* View */,
 				7ED96AD42B2AF367000BB6D5 /* Model */,
@@ -239,6 +244,7 @@
 				7ED96AC72B2AF327000BB6D5 /* Expense_TrackerApp.swift in Sources */,
 				7EC6B6342B2BA00A00B18BC3 /* Date+Extensions.swift in Sources */,
 				7E7B1C2B2B2B5055008D3DA7 /* Search.swift in Sources */,
+				7E4D8AB02B2DD1340001113D /* LockView.swift in Sources */,
 				7ED96ADA2B2AF580000BB6D5 /* Constants.swift in Sources */,
 				7E7B1C2D2B2B505E008D3DA7 /* Graphs.swift in Sources */,
 				7ECED25A2B2B438300151F1D /* Category.swift in Sources */,
@@ -379,6 +385,8 @@
 				DEVELOPMENT_TEAM = K9Q3UG34P4;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Expense-Tracker-Info.plist";
+				INFOPLIST_KEY_NSFaceIDUsageDescription = DESCRIPTION;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -408,6 +416,8 @@
 				DEVELOPMENT_TEAM = K9Q3UG34P4;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Expense-Tracker-Info.plist";
+				INFOPLIST_KEY_NSFaceIDUsageDescription = DESCRIPTION;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

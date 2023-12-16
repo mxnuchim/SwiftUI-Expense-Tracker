@@ -39,7 +39,7 @@ struct Recents: View {
                             .hSpacing(.leading)
                             
                             // monthly statement card view
-                            CardView(income: 65930, expense: 377880)
+                            CardView(income: 606000, expense: 377880)
                             
                             // custom segmented control
                             CategoryTabs()

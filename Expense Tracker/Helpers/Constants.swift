@@ -7,4 +7,4 @@
 
 import SwiftUI
 
-let appTint: Color = .teal
+let appTint: Color = .blue
