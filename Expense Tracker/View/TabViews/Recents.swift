@@ -32,7 +32,7 @@ struct Recents: View {
                             Button(action: {
                                 showFilters = true
                             }, label: {
-                                Text("\(format(date: startDate, format: "dd - MMM yy")) to \(format(date: endDate, format: "dd - MMM yy"))")
+                                Text("\(format(date: startDate, format: "dd MMM yy")) to \(format(date: endDate, format: "dd MMM yy"))")
                                     .font(.caption2)
                                     .foregroundStyle(.gray)
                             })

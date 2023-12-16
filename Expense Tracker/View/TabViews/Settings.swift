@@ -18,8 +18,8 @@ struct Settings: View {
     var body: some View {
         NavigationStack{
             List{
-                Section("username"){
-                    TextField("Your Username", text: $username)
+                Section("Name"){
+                    TextField("What's your name?", text: $username)
                 }
                 
                 Section("App Lock"){
