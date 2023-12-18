@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct Recents: View {
     //User data
@@ -19,6 +20,9 @@ struct Recents: View {
     
     // for animation
     @Namespace private var animation
+    
+    // For reading data from SwiftData Model
+    @Query(sort: [SortDescriptor(\Transaction.dateAdded, order: .reverse)], animation: .snappy) private var transactions: [Transaction]
     
     var body: some View {
         GeometryReader {
@@ -45,8 +49,13 @@ struct Recents: View {
                             CategoryTabs()
                                 .padding(.bottom, 10)
                             
-                            ForEach(sampleTransactions.filter({$0.category == selectedCategory.rawValue})) {transactiton in
-                                TransactionCardView(transaction: transactiton)
+                            ForEach(transactions){ transaction in
+                                NavigationLink{
+                                    NewEntryView(transactionToEdit: transaction)
+                                }  label: {
+                                    TransactionCardView(transaction: transaction)
+                                }
+                                .buttonStyle(.plain)
                             }
                         } header: {
                             HeaderView(size)
@@ -58,7 +67,8 @@ struct Recents: View {
                 .blur(radius: showFilters ? 8 : 0)
                 .disabled(showFilters)
             }
-            .overlay{                    if showFilters {
+            .overlay{                   
+                if showFilters {
                         DateFilterView(start: startDate, end: endDate, onSubmit: {
                             start, end in
                             startDate = start

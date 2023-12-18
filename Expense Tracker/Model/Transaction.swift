@@ -6,9 +6,10 @@
 //
 
 import SwiftUI
+import SwiftData
 
-struct Transaction: Identifiable {
-    let id: UUID = .init()
+@Model
+class Transaction {
     var title: String
     var remarks: String
     var amount: Double
@@ -26,15 +27,22 @@ struct Transaction: Identifiable {
     }
     
     // Extract color value from tint color
+    @Transient
     var color: Color {
         return tints.first(where: {$0.color == tintColor})?.value ?? appTint
     }
+    
+    @Transient
+    var tint: TintColor? {
+        return tints.first(where: {$0.color == tintColor})
+    }
+    
+    @Transient
+    var rawCategory: Category? {
+        return Category.allCases.first(where: { category == $0.rawValue })
+    }
+
 }
 
-var sampleTransactions: [Transaction] = [
-    .init(title: "Magic Keyboard", remarks: "Apple Magic Keyboard", amount: 88700, dateAdded: .now, category: .expense, tintColor: tints.randomElement()!),
-    .init(title: "Apple Music", remarks: "Apple Music Subscription", amount: 900, dateAdded: .now, category: .expense, tintColor: tints.randomElement()!),
-    .init(title: "Netflix", remarks: "Netflix Subscription", amount: 3400, dateAdded: .now, category: .expense, tintColor: tints.randomElement()!),
-    .init(title: "Payment", remarks: "Weekly Salary Received", amount: 365000, dateAdded: .now, category: .income, tintColor: tints.randomElement()!),
-]
+
 

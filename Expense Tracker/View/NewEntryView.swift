@@ -8,13 +8,18 @@
 import SwiftUI
 
 struct NewEntryView: View {
+    @Environment(\.modelContext) private var context
+    @Environment(\.dismiss) private var dismiss
+    
     @State private var title: String = ""
     @State private var remarks: String = ""
     @State private var amount: Double = .zero
     @State private var dateAdded: Date = .now
     @State private var category:Category = .expense
     
-    var tint: TintColor = tints.randomElement()!
+    @State var tint: TintColor = tints.randomElement()!
+    
+    var transactionToEdit: Transaction?
     
     var body: some View {
         ScrollView(.vertical){
@@ -31,9 +36,9 @@ struct NewEntryView: View {
                     tintColor: tint
                 ))
                 
-                CustomSection("Title", "Magic Keyboard", value: $title)
+                CustomSection("Title", "Airpods Max", value: $title)
                 
-                CustomSection("Remarks", "Apple Magic Keyboard", value: $remarks)
+                CustomSection("Remarks", "Apple Airpods Max - Sky blue", value: $remarks)
                 
                 // Amount & category checkbox
                 VStack(alignment: .leading, spacing: 10, content: {
@@ -43,11 +48,18 @@ struct NewEntryView: View {
                         .hSpacing(.leading)
                     
                     HStack(spacing: 15){
-                        TextField("0.0", value: $amount, formatter: numberFormatter)
-                            .padding(.horizontal, 15)
-                            .padding(.vertical, 12)
-                            .background(.background, in: .rect(cornerRadius: 10))
-                            .frame(maxWidth: 130)
+                        HStack(spacing: 4){
+                            Text(currencySymbol)
+                                .font(.callout.bold())
+                            
+                            TextField("0.0", value: $amount, formatter: numberFormatter)
+                                .keyboardType(.decimalPad)
+                        }
+                        .padding(.horizontal, 15)
+                        .padding(.vertical, 12)
+                        .background(.background, in: .rect(cornerRadius: 10))
+                        .frame(maxWidth: 130)
+                           
                         
                         // Checkbox
                         CategoryCheckbox()
@@ -69,17 +81,48 @@ struct NewEntryView: View {
             }
             .padding(15)
         }
-        .navigationTitle("Add New Entry")
+        .navigationTitle("\(transactionToEdit == nil ? "Add" : "Edit") Transaction")
         .background(.gray.opacity(0.15))
         .toolbar(content: {
             ToolbarItem(placement: .topBarTrailing){
                 Button("Save", action: save)
             }
         })
+        .onAppear(perform: {
+            if let transactionToEdit {
+                // Load all existing ata if a transaction to edit exists
+                title = transactionToEdit.title
+                remarks = transactionToEdit.remarks
+                dateAdded = transactionToEdit.dateAdded
+                if let category = transactionToEdit.rawCategory {
+                    self.category = category
+                }
+                amount = transactionToEdit.amount
+                if let tint = transactionToEdit.tint {
+                    self.tint = tint
+                }
+                
+            }
+        })
     }
     
     func save() {
-        // x 
+        // Saving new entry with SwiftData
+        
+        if transactionToEdit != nil {
+            transactionToEdit?.title = title
+            transactionToEdit?.remarks = remarks
+            transactionToEdit?.amount = amount
+            transactionToEdit?.category = category.rawValue
+            transactionToEdit?.dateAdded = dateAdded
+        } else {
+            let transaction = Transaction(title: title, remarks: remarks, amount: amount, dateAdded: dateAdded, category: category, tintColor: tint)
+            
+            context.insert(transaction)
+        }
+        
+        
+        dismiss()
     }
     
     @ViewBuilder
