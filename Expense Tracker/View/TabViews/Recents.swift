@@ -96,7 +96,7 @@ struct Recents: View {
             Spacer()
             
             NavigationLink {
-                
+                NewEntryView()
             } label: {
                 Image(systemName: "plus")
                     .font(.title3)
