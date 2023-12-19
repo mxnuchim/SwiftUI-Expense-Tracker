@@ -42,21 +42,24 @@ struct Recents: View {
                             })
                             .hSpacing(.leading)
                             
-                            // monthly statement card view
-                            CardView(income: 606000, expense: 377880)
-                            
-                            // custom segmented control
-                            CategoryTabs()
-                                .padding(.bottom, 10)
-                            
-                            ForEach(transactions){ transaction in
-                                NavigationLink{
-                                    NewEntryView(transactionToEdit: transaction)
-                                }  label: {
-                                    TransactionCardView(transaction: transaction)
+                            FilterTransactionView(startDate: startDate, endDate: endDate) { transactions in
+                                CardView(
+                                    income: total(transactions, category: .income),
+                                    expense: total(transactions, category: .expense)
+                                )
+                                
+                                // custom segmented control
+                                CategoryTabs()
+                                    .padding(.bottom, 10)
+                                
+                                ForEach(transactions.filter({ $0.category == selectedCategory.rawValue })){ transaction in
+                                    NavigationLink(value: transaction){
+                                        TransactionCardView(transaction: transaction)
+                                    }
+                                    .buttonStyle(.plain)
                                 }
-                                .buttonStyle(.plain)
                             }
+                            
                         } header: {
                             HeaderView(size)
                         }
@@ -66,6 +69,9 @@ struct Recents: View {
                 .background(.gray.opacity(0.15))
                 .blur(radius: showFilters ? 8 : 0)
                 .disabled(showFilters)
+                .navigationDestination(for: Transaction.self) { transaction in
+                    TransactionView(transactionToEdit: transaction)
+                }
             }
             .overlay{                   
                 if showFilters {
@@ -106,7 +112,7 @@ struct Recents: View {
             Spacer()
             
             NavigationLink {
-                NewEntryView()
+                TransactionView()
             } label: {
                 Image(systemName: "plus")
                     .font(.title3)
