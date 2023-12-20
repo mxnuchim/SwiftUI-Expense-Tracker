@@ -15,6 +15,17 @@ struct CardView: View {
         ZStack {
             RoundedRectangle(cornerRadius: 15)
                 .fill(appTint.gradient)
+                .overlay(alignment: .leading){
+                    Circle()
+                        .fill(appTint.opacity(0.5).gradient)
+                        .overlay {
+                            Circle()
+                                .fill(.white.opacity(0.1).gradient)
+                        }
+                        .scaleEffect(2, anchor: .topLeading)
+                        .offset(x: -50, y: -100)
+                }
+                .clipShape(RoundedRectangle(cornerRadius: 25, style: .continuous))
             
             VStack(spacing: 0) {
                 HStack(spacing: 12){
