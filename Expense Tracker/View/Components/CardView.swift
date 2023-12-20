@@ -20,7 +20,7 @@ struct CardView: View {
                         .fill(appTint.opacity(0.5).gradient)
                         .overlay {
                             Circle()
-                                .fill(.white.opacity(0.1).gradient)
+                                .fill(.white.opacity(0.13).gradient)
                         }
                         .scaleEffect(2, anchor: .topLeading)
                         .offset(x: -50, y: -100)
