@@ -78,6 +78,6 @@ struct CardView: View {
 
 #Preview {
     ScrollView {
-        CardView(income: 4506, expense: 2395)
+        CardView(income: 4700000, expense: 1350000)
     }
 }

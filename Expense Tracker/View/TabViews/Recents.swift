@@ -34,13 +34,14 @@ struct Recents: View {
                         Section{
                             // date filter button
                             Button(action: {
+                                print("Pressed filter button")
                                 showFilters = true
                             }, label: {
                                 Text("\(format(date: startDate, format: "dd MMM yy")) to \(format(date: endDate, format: "dd MMM yy"))")
                                     .font(.caption2)
                                     .foregroundStyle(.gray)
                             })
-                            .hSpacing(.leading)
+                            .hSpacing(.trailing)
                             
                             FilterTransactionView(startDate: startDate, endDate: endDate) { transactions in
                                 CardView(
@@ -95,7 +96,7 @@ struct Recents: View {
     func HeaderView(_ size: CGSize) -> some View {
         HStack(spacing: 10){
             VStack(alignment: .leading, spacing: 5, content: {
-                Text("Welcome!")
+                Text("Welcome back!")
                     .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/.bold())
                 
                 if !username.isEmpty {

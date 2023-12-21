@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7E02545D2B34C9A100734B44 /* Chart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E02545C2B34C9A100734B44 /* Chart.swift */; };
 		7E0B53232B2BA94C00CEF07E /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E0B53222B2BA94C00CEF07E /* CardView.swift */; };
 		7E0B53252B2BBA5400CEF07E /* TransactionCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E0B53242B2BBA5400CEF07E /* TransactionCardView.swift */; };
 		7E0B53272B2BBE3500CEF07E /* SwipeAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E0B53262B2BBE3500CEF07E /* SwipeAction.swift */; };
@@ -33,6 +34,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7E02545C2B34C9A100734B44 /* Chart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chart.swift; sourceTree = "<group>"; };
 		7E0B53222B2BA94C00CEF07E /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		7E0B53242B2BBA5400CEF07E /* TransactionCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionCardView.swift; sourceTree = "<group>"; };
 		7E0B53262B2BBE3500CEF07E /* SwipeAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeAction.swift; sourceTree = "<group>"; };
@@ -140,6 +142,7 @@
 				7ECED2592B2B438300151F1D /* Category.swift */,
 				7ECED25B2B2B441400151F1D /* Transaction.swift */,
 				7ECED25D2B2B450800151F1D /* TintColor.swift */,
+				7E02545C2B34C9A100734B44 /* Chart.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -250,6 +253,7 @@
 				7E7B1C2F2B2B506B008D3DA7 /* Settings.swift in Sources */,
 				7EC6B6322B2B8B0700B18BC3 /* View+Extensions.swift in Sources */,
 				7ED96AC72B2AF327000BB6D5 /* Expense_TrackerApp.swift in Sources */,
+				7E02545D2B34C9A100734B44 /* Chart.swift in Sources */,
 				7EC6B6342B2BA00A00B18BC3 /* Date+Extensions.swift in Sources */,
 				7E7B1C2B2B2B5055008D3DA7 /* Search.swift in Sources */,
 				7E4D8AB02B2DD1340001113D /* LockView.swift in Sources */,
