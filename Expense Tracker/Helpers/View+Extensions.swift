@@ -19,6 +19,7 @@ extension View {
             .frame(maxHeight: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, alignment: alignment)
     }
     
+    @available(iOSApplicationExtension, unavailable)
     var safeArea: UIEdgeInsets {
         if let windowScene = (UIApplication.shared.connectedScenes.first as? UIWindowScene) {
             return windowScene.keyWindow?.safeAreaInsets ?? .zero

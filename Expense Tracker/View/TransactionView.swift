@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import WidgetKit
 
 struct TransactionView: View {
     @Environment(\.modelContext) private var context
@@ -123,6 +124,8 @@ struct TransactionView: View {
         
         
         dismiss()
+        // Updating widget
+        WidgetCenter.shared.reloadAllTimelines()
     }
     
     @ViewBuilder
