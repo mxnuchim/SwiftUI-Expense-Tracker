@@ -12,7 +12,7 @@ struct IntroScreen: View {
     @AppStorage("isFirstTime") private var isFirstTime: Bool = true
     var body: some View {
         VStack(spacing: 15, content: {
-            Text("What's new in the \n Expense Tracker")
+            Text("What's new in the \n Spenderly")
                 .font(.largeTitle.bold())
                 .multilineTextAlignment(.center)
                 .padding(.top, 65)
