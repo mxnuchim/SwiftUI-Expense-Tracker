@@ -47,7 +47,7 @@ struct TransactionCardView: View {
                 .lineLimit(1)
                 .hSpacing(.leading)
                 
-                Text(currencyString(transaction.amount, allowedDigits: 2))
+                Text(currencyString(transaction.amount, allowedDigits: 0))
                     .fontWeight(.semibold)
             }
             .padding(.horizontal, 15)

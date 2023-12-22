@@ -19,11 +19,15 @@ struct Graphs: View {
             ScrollView(.vertical){
                 LazyVStack(spacing: 10){
                     // Chart View
-                    ChartView()
-                        .frame(height: 200)
-                        .padding(10)
-                        .padding(.top, 10)
-                        .background(.background, in: .rect(cornerRadius: 10))
+                    if chartGroups.isEmpty {
+                        EmptyView(message: "No transactions found", symbol: "exclamationmark.magnifyingglass")
+                    } else {
+                        ChartView()
+                            .frame(height: 200)
+                            .padding(10)
+                            .padding(.top, 10)
+                            .background(.background, in: .rect(cornerRadius: 10))
+                    }
                     
                     ForEach(chartGroups) { group in
                         VStack(alignment: .leading, spacing: 10){
@@ -35,7 +39,7 @@ struct Graphs: View {
                             NavigationLink {
                                 ListOfExpenses(month: group.date)
                             } label: {
-                                CardView(income: group.totalIncome, expense: group.totalExpense)
+                                    CardView(income: group.totalIncome, expense: group.totalExpense)
                             }
                             .buttonStyle(.plain)
                         }

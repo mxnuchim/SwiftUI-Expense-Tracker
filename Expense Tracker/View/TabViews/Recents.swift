@@ -53,11 +53,17 @@ struct Recents: View {
                                 CategoryTabs()
                                     .padding(.bottom, 10)
                                 
-                                ForEach(transactions.filter({ $0.category == selectedCategory.rawValue })){ transaction in
-                                    NavigationLink(value: transaction){
-                                        TransactionCardView(transaction: transaction)
+                               
+                                
+                                if transactions.isEmpty {
+                                        EmptyView(message: "No transactions found", symbol: "exclamationmark.magnifyingglass")
+                                } else {
+                                    ForEach(transactions.filter({ $0.category == selectedCategory.rawValue })){ transaction in
+                                        NavigationLink(value: transaction){
+                                            TransactionCardView(transaction: transaction)
+                                        }
+                                        .buttonStyle(.plain)
                                     }
-                                    .buttonStyle(.plain)
                                 }
                             }
                             
