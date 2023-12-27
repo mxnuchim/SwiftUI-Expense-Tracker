@@ -33,7 +33,7 @@ struct Graphs: View {
                         VStack(alignment: .leading, spacing: 10){
                             Text(format(date: group.date, format: "MMMM yy"))
                                 .font(.callout.bold())
-                                .foregroundStyle(.black)
+                                .foregroundStyle(.primary)
                                 .hSpacing(.leading)
                             
                             NavigationLink {
